@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number pattern Generator</title>
+    <style>
+        body {
+            font-family: monospace;
+            text-align: center;
+        }
+        .container {
+            margin-top: 50px;
+            font-size: 20px;
+        }
+        .row-even {
+            color: #007bff; /* Blue */
+        }
+        .row-odd {
+            color: #28a745; /* Green */
+        }
+    </style>
+</head>
+<body>
+    <h1>Right Side Triangle Pattern</h1>
+    <div id="pattern-output" class="container"></div>
+    <script>
+        const Height = 5;
+        const outputDiv = document.getElementById('pattern-output');
+        let patternHTML = '';
+
+        for (let row = 1; row <= Height; row++){
+            let rowContent = '';
+            const numSpaces = Height - row;
+            for(let j = 0; j<numSpaces; j++){
+                rowContent += '&nbsp';
+            }
+            for(let k = 0; k<row; k++){
+                rowContent += '*';
+            }
+            const rowClass = (row % 2 === 0) ? 'row-even': 'row-odd';
+            patternHTML += `<div class="${rowClass}">${rowContent}</div>`;
+        }
+        outputDiv.innerHTML = patternHTML;
+    </script>
+    
+</body>
+</html>
